@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Salinerito - Economía Solidaria en Ecuador</title>
+    <style>
+        :root {
+            --color-primary: #084f7b;
+            --color-secondary: #f3f4f4;
+            --color-accent: #d4cb36;
+            --color-text: #333;
+            --color-highlight: #d4cb36;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+            margin: 0;
+            padding: 0;
+            background-image: url('https://tse3.mm.bing.net/th/id/OIP.Ux7fNJTAyC1JoeWtZnThFQHaHa?rs=1&pid=ImgDetMain');
+            background-attachment: fixed;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animaciones personalizadas */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes approach {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.03); }
+        }
+        
+        @keyframes shine {
+            from { background-position: -100%; }
+            to { background-position: 100%; }
+        }
+        
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://www.turisec.com/wp-content/uploads/2024/01/SALINAS.jpg');
+            background-size: cover;
+            background-position: center;
+            color: rgb(255, 255, 255);
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--color-secondary);
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeIn 1.5s ease-in-out, float 6s ease-in-out infinite;
+            position: relative;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--color-highlight);
+            animation: shine 3s infinite;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            animation: fadeIn 2s ease-in-out, pulse 3s infinite;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            display: block;
+            animation: bounce 2s infinite alternate, pulse 3s infinite;
+            position: relative;
+            z-index: 3;
+            border-radius: 50%;
+            border: 3px solid var(--color-highlight);
+            box-shadow: 0 10px 30px rgba(212, 203, 54, 0.5);
+            transition: all 0.5s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(212, 203, 54, 0.8);
+            
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--color-primary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: linear-gradient(90deg, var(--color-primary) 0%, #0a6da3 50%, var(--color-primary) 100%);
+            background-size: 200% auto;
+            animation: gradientBG 8s ease infinite;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-highlight);
+            z-index: -1;
+            transform: rotateX(90deg);
+            transform-origin: bottom;
+            transition: transform 0.3s;
+            opacity: 0;
+        }
+        
+        nav a:hover {
+            color: var(--color-text);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        nav a:hover::before {
+            transform: rotateX(0deg);
+            opacity: 1;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-highlight);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            display: inline-block;
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            background-color: var(--color-secondary);
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease-out;
+       
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+            z-index: 0;
+
+        }
+        
+         .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(8, 79, 123, 0.5);
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 25px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 5px solid var(--color-primary);
+        }
+        
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-left: 5px solid var(--color-accent);
+        }
+        
+        .timeline-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.5s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            filter: brightness(0.9);
+        }
+        
+        .timeline-item:hover .timeline-image {
+            transform: scale(1.05);
+            filter: brightness(1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--color-primary);
+            margin-top: 0;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .timeline-item:hover .timeline-content h3 {
+            color: var(--color-accent);
+        }
+        
+        .timeline-date {
+            position: absolute;
+            width: 120px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: -150px;
+            top: 20px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-date {
+            left: -150px;
+            top: 20px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 203, 54, 0.1) 0%, rgba(8, 79, 123, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 0 50px rgba(212, 203, 54, 0.3);
+        }
+        
+        .product-card:hover::before {
+            opacity: 1;
+        }
+        
+        .product-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-card:hover .product-image::after {
+            left: 100%;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover .product-title {
+            color: var(--color-accent);
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover .product-description {
+            color: var(--color-text);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.5s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.show {
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 50px rgba(212, 203, 54, 0.5);
+            position: relative;
+            transform: translateY(-50px) scale(0.9);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(212, 203, 54, 0.3);
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0) scale(1);
+        }
+        
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--color-primary);
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .close-modal:hover {
+            color: var(--color-accent);
+            background-color: rgba(0,0,0,0.05);
+            transform: rotate(90deg);
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .modal-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .product-varieties {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .variety-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .variety-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2), 0 0 20px rgba(212, 203, 54, 0.2);
+            border-color: rgba(212, 203, 54, 0.3);
+        }
+        
+        .variety-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .variety-card:hover .variety-image {
+            transform: scale(1.03);
+        }
+        
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+           background: linear-gradient (135deg, rgba(8, 79, 123, 0.8), rgba(212, 203, 54, 0.2));
+               backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212, 203, 54, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 0 30px rgba(212, 203, 54, 0.2);
+        }
+        
+        .stat-card:hover::before {
+            animation: shine 1.5s;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover .stat-number {
+            color: var(--color-accent);
+            transform: scale(1.1);
+        }
+        
+        .stat-label {
+            color: var(--color-text);
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover .stat-label {
+            transform: translateY(5px);
+        }
+        
+        footer {
+            background-color: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+            background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://salinerito.com/wp-content/uploads/2022/03/division-productos-1.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(8, 79, 123, 0.8) 0%, rgba(212, 203, 54, 0.5) 100%);
+            z-index: 0;
+            animation: gradientBG 10s ease infinite;
+        }
+        
+        footer h2 {
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s, float 6s ease-in-out infinite;
+        }
+        
+        footer p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--color-highlight);
+            transform: translateY(-3px) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .social-link:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .social-link i {
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover i {
+            color: var(--color-text);
+            transform: scale(1.2);
+        }
+        
+        /* Efecto de partículas */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(212, 203, 54, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        /* Scroll personalizado */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--color-secondary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-accent);
+        }
+        
+        /* Efecto de confeti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--color-highlight);
+            opacity: 0;
+            z-index: 9999;
+            animation: confetti-fall 5s linear forwards;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Botón flotante */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 99;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(90deg);
+            background-color: var(--color-highlight);
+            color: var(--color-text);
+            animation: none;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-date,
+            .timeline-item:nth-child(even) .timeline-date {
+                left: 70px;
+                right: auto;
+                top: -30px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: auto;
+                right: auto;
+                border-right: 15px solid white;
+                border-left: none;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+            }
+            
+            nav a {
+                padding: 0.5rem 1rem;
+                margin: 0.3rem;
+                font-size: 0.9rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 2% auto;
+                padding: 20px;
+            }
+            
+            .product-varieties {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Efecto de partículas -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Botón flotante -->
+    <div class="floating-btn" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <header>
+        <img src="https://yt3.ggpht.com/-9UjA-XCT9KA/AAAAAAAAAAI/AAAAAAAAAAA/JD1wmRfeyeE/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="Logo El Salinerito" class="logo">
+        <h1>El Salinerito</h1>
+        <p class="subtitle">Economía Solidaria que Transforma Comunidades</p>
+    </header>
+    
+    <nav>
+        <a href="#historia">Historia</a>
+        <a href="#productos">Productos</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#modelo">Modelo</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    
+    <div class="container">
+        <section id="historia">
+            <div class="section-title">
+                <h2>Nuestra Historia</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEibkhcVuC6dEKbiFGH1VKjNS4zWcNE1NJoKwyYoOr8sMr-uJ2h9G-bgpsdi3jednZK937RqaP5VvFm1BYmksUmiivl29PgTUO-QRP0vPhYGCsA48ibpI7fRpOEjhdRgUmsvgj4au4O4aTAeqi2KVNVUOgayHHejzM24t5rIl4GoimMSXkl2I8_9GL2v=w400-h175" 
+                             alt="Padre Antonio Polo" 
+                             class="timeline-image"
+                             onclick="openBioModal('padre-polo', 'Padre Antonio Polo', 'Sacerdote salesiano italiano que llegó a Salinas en 1972. Por pedido del Monseñor Cándido Rada (1905-1995), Obispo de la ciudad de Guaranda, hace más de 40 años se construyó  la primera casa comunal de la parroquia Salinas.Transformó la comunidad mediante proyectos productivos y organización cooperativa. Su liderazgo fue fundamental para establecer las bases de El Salinerito. Nacido en Italia en 1938, llegó a Ecuador en 1963 y se dedicó al desarrollo comunitario, combinando su vocación religiosa con un profundo compromiso social.', 'https://farm3.staticflickr.com/2397/13069109463_5df5afb37a_c.jpg')">
+                        <h3>Llegada del Padre Antonio Polo</h3>
+                        <p>En 1972, el sacerdote salesiano italiano Antonio Polo llega a Salinas de Guaranda, una comunidad aislada y empobrecida. Su misión espiritual pronto se transforma en un compromiso con el desarrollo material de la población.</p>
+                    </div>
+                    <div class="timeline-date">1972</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://3.bp.blogspot.com/-Q-t0GXufM9k/WC46U7-_GqI/AAAAAAAABv0/MOCXHzP_ut8XNeWJoK_IQxC-OSua02zyACLcB/s1600/20161019_112221.jpg" 
+                             alt="Primera quesera comunitaria" 
+                             class="timeline-image"
+                             onclick="openBioModal('primera-quesera', 'Primera Quesera Comunitaria', 'Establecida en 1973, fue el primer proyecto productivo de la comunidad. Aunque enfrentó dificultades iniciales por falta de experiencia y problemas de distribución, sentó las bases para el desarrollo cooperativo posterior. La quesera inicial procesaba 50 litros de leche diarios y empleaba a 5 personas de la comunidad.', 'https://salinerito.com/wp-content/uploads/2022/03/historia-funcoquerucom.jpg')">
+                        <h3>Primera Quesera Comunitaria</h3>
+                        <p>Se establece la primera quesera en 1973, aunque enfrenta dificultades iniciales. Esta iniciativa marca el comienzo del modelo cooperativo que caracterizaría a El Salinerito.</p>
+                    </div>
+                    <div class="timeline-date">1973</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://salinerito.com/wp-content/uploads/2022/03/trabajo-comunidades.jpg" 
+                             alt="José Dubach" 
+                             class="timeline-image"
+                             onclick="openBioModal('jose-dubach', 'José Dubach', 'Experto quesero suizo que llegó en 1978. Mejoró las técnicas de producción y ayudó a establecer los estándares de calidad que hicieron famosos los quesos de El Salinerito. Dubach introdujo técnicas europeas de maduración y control de calidad, adaptándolas a las condiciones locales. Permaneció en Salinas por 5 años, capacitando a los productores locales.', 'https://salinerito.com/wp-content/uploads/2020/11/quesos-maduros.jpg')">
+                        <h3>Nacimiento de la Marca</h3>
+                        <p>Con la llegada del experto quesero suizo José Dubach en 1978, se reinicia la producción quesera con técnicas mejoradas, dando origen oficial a la marca El Salinerito.</p>
+                    </div>
+                    <div class="timeline-date">1978</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://www.salineritotqb.com/web/image/2058254-80c3542a/PRODUCTOS%20SALINERITO.jpg" 
+                             alt="Diversificación de productos" 
+                             class="timeline-image"
+                             onclick="openBioModal('diversificacion', 'Diversificación Productiva', 'A partir de los años 80, la comunidad expandió su producción a chocolates (con ayuda de chocolateros suizos jubilados), textiles (a través de la asociación de mujeres TEXAL), licores artesanales y otros productos, siempre manteniendo los principios de economía solidaria. Cada nuevo producto surgió de identificar recursos locales subutilizados y necesidades del mercado.', 'https://mapio.net/images-p/16739589.jpg')">
+                        <h3>Diversificación Productiva</h3>
+                        <p>A partir de los años 80, la comunidad comienza a diversificar su producción: chocolates (1992), textiles, licores artesanales y otros productos bajo la marca El Salinerito.</p>
+                    </div>
+                    <div class="timeline-date">1980-1990</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://salinerito.com/wp-content/uploads/2022/03/descargas-productos.png" 
+                             alt="Reconocimiento internacional" 
+                             class="timeline-image"
+                             onclick="openBioModal('reconocimiento', 'Reconocimiento Internacional', 'El modelo de Salinas ha sido estudiado como ejemplo de desarrollo comunitario y economía solidaria, con visitas de delegaciones internacionales y reconocimientos varios. Los productos se exportan a más de 15 países, incluyendo mercados exigentes como Japón y Suiza. La comunidad recibe regularmente a estudiantes y profesionales que quieren aprender de su modelo.', 'https://tse2.mm.bing.net/th/id/OIP.vvP9vWBTBoYtIxHWMLpoYgHaDf?rs=1&pid=ImgDetMain')">
+                        <h3>Reconocimiento Internacional</h3>
+                        <p>El modelo de economía solidaria de El Salinerito gana reconocimiento mundial, exportando productos a mercados internacionales y recibiendo visitas de estudiosos del desarrollo comunitario.</p>
+                    </div>
+                    <div class="timeline-date">2000-Presente</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="productos">
+            <div class="section-title">
+                <h2>Nuestros Productos</h2>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card" onclick="openProductModal('quesos')">
+                    <div class="product-image" style="background-image: url('https://salinerito.com/wp-content/uploads/2020/11/quesos-maduros-768x280.jpg')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Quesos Artesanales</h3>
+                        <p class="product-description">Elaborados con leche de vaca de la zona, utilizando técnicas tradicionales mejoradas.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="openProductModal('chocolates')">
+                    <div class="product-image" style="background-image: url('https://www.salineritotqb.com/web/image/218745')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Chocolates Finos</h3>
+                        <p class="product-description">Elaborados con cacao ecuatoriano de alta calidad, combinando tradición suiza con materia prima local.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="openProductModal('licores')">
+                    <div class="product-image" style="background-image: url('https://d264tuzfk424fk.cloudfront.net/LandingPagePictures/440f948f-84df-49e9-97cb-8edb99115823_638272413152745810_.jpeg')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Licores Artesanales</h3>
+                        <p class="product-description">Destilados de frutas locales como mora, capulí y naranjilla, con saber tradicional.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="openProductModal('textiles')">
+                    <div class="product-image" style="background-image: url('https://th.bing.com/th/id/R.ab1b6b59fdada189f139b7520036382d?rik=y5l4nqfrD5zn7Q&riu=http%3a%2f%2fwww.salineritotqb.com%2fweb%2fimage%2f534150&ehk=fIK4G2yZlQaPHzm7MXTxAeA47VTPBXZEVbC0IEBHd3M%3d&risl=&pid=ImgRaw&r=0')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Textiles de Lana</h3>
+                        <p class="product-description">Tejidos artesanales de lana de oveja y alpaca, producidos por mujeres de la comunidad.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="openProductModal('embutidos')">
+                    <div class="product-image" style="background-image: url('https://assets.isu.pub/document-structure/210508134923-b154df264289a8a6cbb6f94a63b0de9d/v1/e7a766cf184b69f7dae152f1d4bf9434.jpg')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Embutidos Tradicionales</h3>
+                        <p class="product-description">Jamones, chorizos y otros embutidos elaborados con carne de cerdo criado localmente.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card" onclick="openProductModal('mermeladas')">
+                    <div class="product-image" style="background-image: url('https://s2.abcstatics.com/media/bienestar/2022/01/30/recetas-mermelada-kHkE--1248x698@abc.jpg')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Mermeladas y Conservas</h3>
+                        <p class="product-description">Elaboradas con frutas de la zona, sin conservantes artificiales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="impacto">
+            <div class="section-title">
+                <h2>Nuestro Impacto</h2>
+            </div>
+            
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <div class="stat-number">1,800+</div>
+                    <div class="stat-label">Proveedores Locales</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">184</div>
+                    <div class="stat-label">Empleos Directos</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Países de Exportación</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Años de Historia</div>
+                </div>
+            </div>
+            
+            <div style="background-color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: var(--color-primary); text-align: center; margin-bottom: 1.5rem;">Transformando una Comunidad</h3>
+                <p>El modelo de economía solidaria de El Salinerito ha convertido a Salinas de Guaranda de una comunidad empobrecida en un ejemplo de desarrollo sostenible. Las ganancias se reinvierten en:</p>
+                <ul style="columns: 2; list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 0.5rem;">✔️ Infraestructura comunitaria</li>
+                    <li style="margin-bottom: 0.5rem;">✔️ Educación y becas</li>
+                    <li style="margin-bottom: 0.5rem;">✔️ Servicios de salud</li>
+                    <li style="margin-bottom: 0.5rem;">✔️ Vivienda digna</li>
+                    <li style="margin-bottom: 0.5rem;">✔️ Conservación ambiental</li>
+                    <li style="margin-bottom: 0.5rem;">✔️ Nuevos emprendimientos</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="modelo" style="margin-top: 4rem;">
+            <div class="section-title">
+                <h2>Modelo de Economía Solidaria</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="background-color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.5s;">
+                    <h3 style="color: var(--color-primary); text-align: center;">Propiedad Colectiva</h3>
+                    <p>Las empresas son propiedad de la comunidad, no de individuos. Las decisiones se toman democráticamente y las ganancias se distribuyen equitativamente.</p>
+                </div>
+                
+                <div style="background-color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.5s;">
+                    <h3 style="color: var(--color-primary); text-align: center;">Desarrollo Integral</h3>
+                    <p>No solo se busca beneficio económico, sino también desarrollo social, cultural y ambiental de la comunidad.</p>
+                </div>
+                
+                <div style="background-color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.5s;">
+                    <h3 style="color: var(--color-primary); text-align: center;">Sostenibilidad</h3>
+                    <p>Las actividades productivas se realizan respetando el medio ambiente y preservando los recursos para futuras generaciones.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Modal para biografías -->
+    <div id="bio-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('bio-modal')">&times;</span>
+            <img id="bio-image" class="modal-image" src="" alt="">
+            <h2 id="bio-title"></h2>
+            <p id="bio-description"></p>
+        </div>
+    </div>
+    
+    <!-- Modal para variedades de quesos -->
+    <div id="quesos-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('quesos-modal')">&times;</span>
+            <img class="modal-image" src="https://live.staticflickr.com/8310/8031186113_3e341c0416_b.jpg" alt="Quesos El Salinerito">
+            <h2>Variedades de Quesos Artesanales</h2>
+            <p>Elaborados con leche de vaca de la zona, utilizando técnicas tradicionales mejoradas. Cada variedad ofrece características únicas:</p>
+            
+            <div class="product-varieties">
+                <div class="variety-card">
+                    <img src="https://megaorganik.com/wp-content/uploads/2022/10/image.jpg" 
+                         alt="Queso Fresco" 
+                         class="variety-image">
+                    <h3>Queso Fresco</h3>
+                    <p><strong>Características:</strong> Elaborado con leche pasteurizada, sin proceso de maduración. Textura suave y sabor lácteo suave.</p>
+                    <p><strong>Usos:</strong> Ideal para sandwiches, ensaladas y platos tradicionales.</p>
+                    <p><strong>Maduración:</strong> Sin maduración</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://delafloresta.com/wp-content/uploads/2020/12/SL050001_ANDINO_MADURADO_1KG-Leonardo-Morales.jpg" 
+                         alt="Queso Andino" 
+                         class="variety-image">
+                    <h3>Queso Andino</h3>
+                    <p><strong>Características:</strong> Madurado por 30 días, desarrolla un sabor más intenso y textura firme.</p>
+                    <p><strong>Usos:</strong> Perfecto para picar o derretir en platos calientes.</p>
+                    <p><strong>Maduración:</strong> 30 días</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.UvUXPZaEIZ5mGelG3bIabQHaHq?rs=1&pid=ImgDetMain" 
+                         alt="Queso Ahumado" 
+                         class="variety-image">
+                    <h3>Queso Ahumado</h3>
+                    <p><strong>Características:</strong> Ahumado con maderas locales, adquiere un característico sabor y aroma.</p>
+                    <p><strong>Usos:</strong> Excelente para tablas de quesos y platos gourmet.</p>
+                    <p><strong>Maduración:</strong> 45 días</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.template/12863/image_512/[SL050008]%20Queso%20andino%20al%20pesto%20Salinerito%20500g?unique=f3d2bdb" 
+                         alt="Queso Condimentado" 
+                         class="variety-image">
+                    <h3>Queso Condimentado</h3>
+                    <p><strong>Características:</strong> Mezclado con hierbas y especias de la zona.</p>
+                    <p><strong>Usos:</strong> Acompañamiento ideal para vinos y cervezas artesanales.</p>
+                    <p><strong>Maduración:</strong> 60 días</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.template/15839/image_1024?unique=5d608b1" 
+                         alt="Queso Premium" 
+                         class="variety-image">
+                    <h3>Queso Premium</h3>
+                    <p><strong>Características:</strong> Madurado por 6 meses en condiciones controladas.</p>
+                    <p><strong>Usos:</strong> Degustación gourmet y regalos empresariales.</p>
+                    <p><strong>Maduración:</strong> 6 meses</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal para variedades de chocolates -->
+    <div id="chocolates-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('chocolates-modal')">&times;</span>
+            <img class="modal-image" src="https://live.staticflickr.com/666/22428424034_66b8e43caa_b.jpg" alt="Chocolates El Salinerito">
+            <h2>Variedades de Chocolates Finos</h2>
+            <p>Elaborados con cacao Arriba Nacional de alta calidad, combinando tradición suiza con materia prima local:</p>
+            
+            <div class="product-varieties">
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.product/10610/image_1024/Tableta%20fondente%2075%25%20Salinerito%2050g?unique=959f4ea" 
+                         alt="Chocolate Negro" 
+                         class="variety-image">
+                    <h3>Chocolate Negro 70%</h3>
+                    <p><strong>Características:</strong> Intenso sabor con notas florales y frutales.</p>
+                    <p><strong>Presentación:</strong> Tableta de 100g</p>
+                    <p><strong>Ingredientes:</strong> Cacao, azúcar, manteca de cacao</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.product/12595/image_1024/Tableta%20de%20chocolate%20con%20leche%2050g?unique=7254b13" 
+                         alt="Chocolate con Leche" 
+                         class="variety-image">
+                    <h3>Chocolate con Leche</h3>
+                    <p><strong>Características:</strong> Mezcla perfecta de cacao y leche en polvo.</p>
+                    <p><strong>Presentación:</strong> Tableta de 100g y barras individuales</p>
+                    <p><strong>Ingredientes:</strong> Cacao, leche, azúcar</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.product/10607/image_1024/Caja%20detalle%20chocolate%20120g?unique=f718652" 
+                         alt="Chocolate Relleno" 
+                         class="variety-image">
+                    <h3>Chocolates Rellenos</h3>
+                    <p><strong>Variedades:</strong> Maracuyá, mora, naranja y café</p>
+                    <p><strong>Presentación:</strong> Caja de 12 piezas (80g)</p>
+                    <p><strong>Ingredientes:</strong> Cacao, frutas locales</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.product/10599/image_1024/Mix%20chocolate%20surtido%20%20Salinerito%20150g?unique=487778a" 
+                         alt="Chocolate en Figuras" 
+                         class="variety-image">
+                    <h3>Figuras Artesanales</h3>
+                    <p><strong>Variedades:</strong> Animales andinos, símbolos indígenas</p>
+                    <p><strong>Presentación:</strong> Piezas individuales o surtidos</p>
+                    <p><strong>Perfecto para:</strong> Regalos y souvenirs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal para variedades de licores -->
+    <div id="licores-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('licores-modal')">&times;</span>
+            <img class="modal-image" src="https://d264tuzfk424fk.cloudfront.net/LandingPagePictures/0ea14a5d-ac75-4ec0-81ff-ad7040feb92d_638272425001072007_.jpeg" alt="Licores El Salinerito">
+            <h2>Variedades de Licores Artesanales</h2>
+            <p>Destilados de frutas locales utilizando métodos tradicionales:</p>
+            
+            <div class="product-varieties">
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.product/12056/image_1024/Vino%20de%20morti%C3%B1o%20ultimo%20inca%20375ml?unique=394c64e" 
+                         alt="Licor de Mora" 
+                         class="variety-image">
+                    <h3>Licor de Mora</h3>
+                    <p><strong>Grado alcohólico:</strong> 30%</p>
+                    <p><strong>Características:</strong> Dulce con toque ácido, color rojo intenso</p>
+                    <p><strong>Presentación:</strong> Botella 750ml</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.product/10404/image_1024/Vino%20de%20morti%C3%B1o%20Ultimo%20Inca%20750ml?unique=cf67d9c" 
+                         alt="Licor de Capulí" 
+                         class="variety-image">
+                    <h3>Licor de Capulí</h3>
+                    <p><strong>Grado alcohólico:</strong> 28%</p>
+                    <p><strong>Características:</strong> Sabor dulce y aromático</p>
+                    <p><strong>Presentación:</strong> Botella 750ml</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.product/9336/image_1024/Pajaro%20azul%20Don%20Dago%20375ml%20?unique=8944ca5" 
+                         alt="Licor de Naranjilla" 
+                         class="variety-image">
+                    <h3>Licor de Naranjilla</h3>
+                    <p><strong>Grado alcohólico:</strong> 25%</p>
+                    <p><strong>Características:</strong> Refrescante con notas cítricas</p>
+                    <p><strong>Presentación:</strong> Botella 750ml</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.product/9335/image_1024/Pajaro%20azul%20Don%20Dago%20750ml%20?unique=3c66df6" 
+                         alt="Aguardiente de Caña" 
+                         class="variety-image">
+                    <h3>Aguardiente de Caña</h3>
+                    <p><strong>Grado alcohólico:</strong> 40%</p>
+                    <p><strong>Características:</strong> Tradicional, con hierbas aromáticas</p>
+                    <p><strong>Presentación:</strong> Botella 750ml</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal para variedades de textiles -->
+    <div id="textiles-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('textiles-modal')">&times;</span>
+            <img class="modal-image" src="https://image.isu.pub/180802161830-d5266dbb9714da2105c0c526f8a48288/jpg/page_1.jpg" alt="Textiles El Salinerito">
+            <h2>Variedades de Textiles de Lana</h2>
+            <p>Elaborados por la Asociación de Mujeres Artesanas de Salinas (TEXAL):</p>
+            
+            <div class="product-varieties">
+                <div class="variety-card">
+                    <img src="https://img95.699pic.com/photo/32221/5095.jpg_wh300.jpg!/fh/300/quality/90" 
+                         alt="Chalinas y bufandas" 
+                         class="variety-image">
+                    <h3>Chalinas y Bufandas</h3>
+                    <p><strong>Material:</strong> Lana de oveja y alpaca</p>
+                    <p><strong>Colores:</strong> Naturales y teñidos con tintes vegetales</p>
+                    <p><strong>Técnica:</strong> Tejido a mano</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://tse1.explicit.bing.net/th/id/OIP.HK2CyS5exhFGDRNjMlR_YAAAAA?w=394&h=568&rs=1&pid=ImgDetMain" 
+                         alt="Ponchos" 
+                         class="variety-image">
+                    <h3>Ponchos</h3>
+                    <p><strong>Material:</strong> Lana 100% natural</p>
+                    <p><strong>Diseños:</strong> Tradicionales andinos</p>
+                    <p><strong>Tallas:</strong> Adulto y niño</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://th.bing.com/th/id/R.93151dad17e01c8722a14c8a0077b72f?rik=U2PImpAb1XCboQ&pid=ImgRaw&r=0" 
+                         alt="Alfombras" 
+                         class="variety-image">
+                    <h3>Alfombras y Tapices</h3>
+                    <p><strong>Material:</strong> Lana gruesa</p>
+                    <p><strong>Diseños:</strong> Geométricos y figurativos</p>
+                    <p><strong>Medidas:</strong> Varias disponibles</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://i.pinimg.com/originals/38/e2/79/38e279e122e4f58811998793752b0d86.jpg" 
+                         alt="Accesorios" 
+                         class="variety-image">
+                    <h3>Accesorios</h3>
+                    <p><strong>Productos:</strong> Guantes, gorros, mitones</p>
+                    <p><strong>Característica:</strong> Abrigo natural</p>
+                    <p><strong>Colores:</strong> Variada gama</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal para variedades de embutidos -->
+    <div id="embutidos-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('embutidos-modal')">&times;</span>
+            <img class="modal-image" src="https://www.salineritotqb.com/web/image/1968597-369396f4/EMBUTIDOS2-11.png" alt="Embutidos El Salinerito">
+            <h2>Variedades de Embutidos Tradicionales</h2>
+            <p>Elaborados con carne de cerdo criado localmente:</p>
+            
+            <div class="product-varieties">
+                <div class="variety-card">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.5qe-3t9grBhdKJrEnGt0nAHaIF?rs=1&pid=ImgDetMain" 
+                         alt="Jamón" 
+                         class="variety-image">
+                    <h3>Jamón Serrano</h3>
+                    <p><strong>Características:</strong> Curado natural, sabor intenso</p>
+                    <p><strong>Presentación:</strong> Pieza entera o tajado</p>
+                    <p><strong>Maduración:</strong> 6 meses mínimo</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://th.bing.com/th/id/R.1f887ea1604672ed2bf34a05d695c8fa?rik=f8eMZcZ%2fVrBTRA&riu=http%3a%2f%2fwww.salineritotqb.com%2fweb%2fimage%2fproduct.template%2f12828%2fimage&ehk=eO0LfX6%2bsLVpD0kYg9XsZqYANQImmHMCWND09veUX9s%3d&risl=&pid=ImgRaw&r=0" 
+                         alt="Chorizo" 
+                         class="variety-image">
+                    <h3>Chorizo Tradicional</h3>
+                    <p><strong>Características:</strong> Condimentado con especias locales</p>
+                    <p><strong>Presentación:</strong> Paquetes de 500g</p>
+                    <p><strong>Preparación:</strong> Ahumado natural</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://www.salineritotqb.com/web/image/product.template/12820/image_1024?unique=f328726" 
+                         alt="Queso de Chancho" 
+                         class="variety-image">
+                    <h3>Salchichón</h3>
+                    <p><strong>Características:</strong> Textura fina, sabor equilibrado</p>
+                    <p><strong>Presentación:</strong> Piezas de 1kg</p>
+                    <p><strong>Maduración:</strong> 60 días</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.EC5hGlDFAZ1-ybzVXFPFkwHaE7?rs=1&pid=ImgDetMain" 
+                         alt="Mortadela" 
+                         class="variety-image">
+                    <h3>Mortadela</h3>
+                    <p><strong>Características:</strong> Con trozos de pistacho</p>
+                    <p><strong>Presentación:</strong> Piezas de 500g</p>
+                    <p><strong>Ingredientes:</strong> Carne selecta, especias</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal para variedades de mermeladas -->
+    <div id="mermeladas-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('mermeladas-modal')">&times;</span>
+            <img class="modal-image" src="https://tse1.mm.bing.net/th/id/OIP.D5wVwwCkevGRQ-ZJ98TmngHaFj?rs=1&pid=ImgDetMain" alt="Mermeladas El Salinerito">
+            <h2>Variedades de Mermeladas y Conservas</h2>
+            <p>Elaboradas con frutas de la zona, sin conservantes artificiales:</p>
+            
+            <div class="product-varieties">
+                <div class="variety-card">
+                    <img src="https://th.bing.com/th/id/R.fd9785e65985709f372444a99d9c0084?rik=65YMfIPI8VzdQg&pid=ImgRaw&r=0" 
+                         alt="Mermelada de Mora" 
+                         class="variety-image">
+                    <h3>Mermelada de Mora</h3>
+                    <p><strong>Características:</strong> Dulce con toque ácido</p>
+                    <p><strong>Presentación:</strong> Frasco 250g</p>
+                    <p><strong>Ingredientes:</strong> Mora, azúcar, limón</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://www.castronicoladirienzo.com/wp-content/uploads/2022/09/products-castroni03_142.jpg" 
+                         alt="Mermelada de Mortiño" 
+                         class="variety-image">
+                    <h3>Mermelada de Mortiño</h3>
+                    <p><strong>Características:</strong> Sabor tropical único</p>
+                    <p><strong>Presentación:</strong> Frasco 250g</p>
+                    <p><strong>Ingredientes:</strong> Mortiño, azúcar</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://i0.wp.com/anamariabraga.globo.com/wp-content/uploads/2019/11/geleia-de-damasco.jpg?fit=640%2C360&ssl=1" 
+                         alt="Mermelada de Babaco" 
+                         class="variety-image">
+                    <h3>Mermelada de Babaco</h3>
+                    <p><strong>Características:</strong> Textura suave, sabor delicado</p>
+                    <p><strong>Presentación:</strong> Frasco 250g</p>
+                    <p><strong>Ingredientes:</strong> Babaco, azúcar</p>
+                </div>
+                
+                <div class="variety-card">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.-I0p3pAmGfpqwQBeCy88AwHaE8?rs=1&pid=ImgDetMain" 
+                         alt="Mermelada Mixta" 
+                         class="variety-image">
+                    <h3>Mermelada Mixta</h3>
+                    <p><strong>Características:</strong> Combinación de frutas</p>
+                    <p><strong>Presentación:</strong> Frasco 250g</p>
+                    <p><strong>Ingredientes:</strong> Mora, frutilla, maracuyá</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="contacto">
+        <h2>Contacta con El Salinerito</h2>
+        <p>Salinas de Guaranda, Provincia de Bolívar, Ecuador</p>
+        
+        <div class="social-links">
+            <a href="https://www.facebook.com/salinerito" class="social-link" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/salinerito" class="social-link" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/593XXXXXXXXX" class="social-link" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:info@salinerito.com" class="social-link" target="_blank">
+                <i class="far fa-envelope"></i>
+            </a>
+        </div>
+        
+        <p>© By: ROMEL TOALOMBO</p>
+    </footer>
+    
+    <script>
+        // Animación de la línea de tiempo al hacer scroll
+        function checkTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (itemTop < windowHeight * 0.8) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkTimeline);
+        window.addEventListener('load', checkTimeline);
+        
+        // Función para abrir modal de biografía
+        function openBioModal(id, title, description, imageUrl) {
+            const modal = document.getElementById('bio-modal');
+            document.getElementById('bio-title').textContent = title;
+            document.getElementById('bio-description').textContent = description;
+            document.getElementById('bio-image').src = imageUrl;
+            document.getElementById('bio-image').alt = title;
+            
+            modal.style.display = 'block';
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden';
+            createConfetti();
+        }
+        
+        // Función para abrir modal de productos con variedades
+        function openProductModal(productId) {
+            const modal = document.getElementById(productId + '-modal');
+            
+            modal.style.display = 'block';
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden';
+            createConfetti();
+        }
+        
+        // Función para cerrar modales
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+        
+        // Cerrar modal al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        }
+        
+        // Crear efecto de partículas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamaño aleatorio entre 2px y 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posición aleatoria
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Opacidad aleatoria
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Animación flotante
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Crear efecto de confeti
+        function createConfetti() {
+            const colors = ['#d4cb36', '#084f7b', '#c02623', '#f3f4f4'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Estilo aleatorio
+                const size = Math.random() * 10 + 5;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                
+                document.body.appendChild(confetti);
+                
+                // Eliminar después de la animación
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // Botón flotante para ir al inicio
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            createConfetti();
+        }
+        
+        // Mostrar/ocultar botón flotante al hacer scroll
+        window.addEventListener('scroll', function() {
+            const floatingBtn = document.querySelector('.floating-btn');
+            if (window.scrollY > 300) {
+                floatingBtn.style.display = 'flex';
+            } else {
+                floatingBtn.style.display = 'none';
+            }
+        });
+        
+        // Inicializar partículas al cargar la página
+        window.addEventListener('load', function() {
+            createParticles();
+            
+            // Efecto de aparición para todas las secciones
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+        
+        // Efecto de hover para las tarjetas del modelo
+        const modelCards = document.querySelectorAll('#modelo > div > div');
+        modelCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15), 0 0 30px rgba(212, 203, 54, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            });
+        });
+    </script>
+    
+    <!-- Font Awesome para los iconos -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
